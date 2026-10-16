@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conduit Offset Calculator — Multiplier, Shrink and Mark Locations</title>
+<link rel="canonical" href="https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Conduit Offset Calculator — Multiplier, Shrink and Mark Locations">
+<meta property="og:description" content="Distance between bends, shrink and mark locations for conduit offsets, in tape-measure fractions. Exact trig or field-chart multipliers.">
+<meta property="og:url" content="https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/">
+<meta name="description" content="Free conduit offset calculator: distance between bends, shrink and where to put your marks, in tape-measure fractions. Exact trig or field-chart multipliers.">
+<style>
+:root{--ink:#14181f;--muted:#5a6270;--line:#d9dde3;--bg:#fff;--card:#f6f7f9;--acc:#c96a12;--accbg:#fff4e8}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.35rem;margin:2em 0 .5em}h3{font-size:1.05rem;margin:1.4em 0 .3em}
+p.lead{color:var(--muted);margin-top:0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+input,select{width:100%;font:inherit;padding:10px 12px;border:1px solid #b9c0ca;border-radius:8px;background:#fff}small{color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.seg button{flex:1;min-width:58px;font:inherit;padding:9px 6px;border:1px solid #b9c0ca;background:#fff;border-radius:8px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.out{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.85rem}.err{color:#a40000;font-weight:600;margin-top:12px}
+ol.steps li{margin:.3em 0}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
+.note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
+a{color:#9a4d06}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
+svg{max-width:100%;height:auto}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--ink);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Conduit Offset Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates the distance between bends, shrink and mark locations for a conduit offset, in tape-measure fractions."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the multiplier for a 30 degree offset?","acceptedAnswer":{"@type":"Answer","text":"2. The exact value is 1 ÷ sin 30° = 2.000, so a 30° offset needs 2 inches between bends for every inch of offset depth."}},
+{"@type":"Question","name":"How much does a 30 degree offset shrink?","acceptedAnswer":{"@type":"Answer","text":"About 1/4 inch per inch of offset depth. The exact value is tan 15° = 0.268 inch per inch, so a 4 inch offset shrinks about 1 1/16 inches."}},
+{"@type":"Question","name":"Why do field-chart multipliers differ from the calculator?","acceptedAnswer":{"@type":"Answer","text":"Field charts round the numbers (1.4 instead of 1.414 for 45°, 6 instead of 5.76 for 10°). On small offsets the difference is under 1/16 inch; on deep offsets it adds up. Pick the mode your crew uses and stay consistent."}},
+{"@type":"Question","name":"Does this account for my bender's radius?","acceptedAnswer":{"@type":"Answer","text":"No. This page uses the point model behind the apprenticeship charts, where each bend is treated as a sharp corner. Real benders have a radius, so check your first piece before cutting a run."}}
+]}
+</script>
+</head>
+<body>
+<main>
+<h1>Conduit Offset Calculator</h1>
+<p class="lead">Enter the offset depth and pick an angle. You get the distance between bends, the shrink and, if you enter the distance to the obstruction, where to put both marks — in tape-measure fractions.</p>
+<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136">Get Raceway for iPhone on the App Store</a>
+
+<section class="card" aria-labelledby="calc">
+  <h2 id="calc" style="margin-top:0">Calculate an offset</h2>
+  <div class="grid">
+    <div><label for="depth">Offset depth (inches)</label><input id="depth" inputmode="decimal" value="6" aria-describedby="dh"><small id="dh">e.g. 6, 4 1/2, 3-3/8 or 5.25</small></div>
+    <div><label for="obst">Distance to obstruction (optional)</label><input id="obst" inputmode="decimal" placeholder="e.g. 48" aria-describedby="oh"><small id="oh">from the conduit end you hook your tape on</small></div>
+    <div><label for="prec">Round to</label><select id="prec"><option value="16">1/16"</option><option value="8">1/8"</option><option value="32">1/32"</option></select></div>
+  </div>
+  <div style="margin-top:14px"><label id="angl">Bend angle</label>
+    <div class="seg" role="group" aria-labelledby="angl" id="angles"></div></div>
+  <div style="margin-top:14px"><label id="model">Numbers</label>
+    <div class="seg" role="group" aria-labelledby="model" id="modes">
+      <button type="button" data-m="exact" aria-pressed="true">Exact (1 ÷ sin θ)</button>
+      <button type="button" data-m="field" aria-pressed="false">Field chart (6, 2.6, 2, 1.4, 1.2)</button></div></div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="err" id="err" role="alert"></div>
+  <ol class="steps" id="how"></ol>
+</section>
+
+<h2>Offset multiplier and shrink chart</h2>
+<p>Distance between bends = offset depth × multiplier. Shrink is how much shorter the conduit gets along its run because of the offset.</p>
+<table>
+<thead><tr><th>Angle</th><th>Multiplier (exact)</th><th>Field chart</th><th>Shrink per inch (exact)</th><th>Field chart shrink</th></tr></thead>
+<tbody id="chart"></tbody>
+</table>
+
+<h2>How to bend an offset</h2>
+<ol>
+<li><b>Measure the depth</b> — how far the conduit has to move to clear the obstruction, face to face.</li>
+<li><b>Pick an angle.</b> Shallow angles (10°, 22.5°) pull wire more easily and look cleaner but need more room between bends; 45° and 60° are tight but harder to pull through.</li>
+<li><b>Find the distance between bends</b>: depth × multiplier (or use the calculator).</li>
+<li><b>Mark the conduit.</b> Without an obstruction measurement, mark the first bend, then the second one the bend distance away. Working up to an obstruction, add the shrink so the offset lands where you need it — the calculator does this for you.</li>
+<li><b>Bend</b> the first mark to the angle, then roll the conduit 180°, line up the second mark and bend the same angle. Keep both bends in the same plane — sight down the pipe to check for dog-leg.</li>
+<li><b>Check your first piece</b> against the obstruction before you cut a run of them.</li>
+</ol>
+<p class="note"><b>About the numbers:</b> this calculator uses the point model behind apprenticeship charts — each bend is treated as a sharp corner. Real benders have a radius and some springback, which shift the marks slightly. Check your first piece. This page uses no electrical-code data.</p>
+
+<h2>Common questions</h2>
+<h3>What is the multiplier for a 30 degree offset?</h3>
+<p>2. The exact value is 1 ÷ sin 30° = 2.000, so a 30° offset needs 2 inches between bends for every inch of offset depth.</p>
+<h3>How much does a 30 degree offset shrink?</h3>
+<p>About 1/4 inch per inch of offset depth. The exact value is tan 15° = 0.268 inch per inch, so a 4 inch offset shrinks about 1 1/16 inches.</p>
+<h3>Why do field-chart multipliers differ from the calculator?</h3>
+<p>Field charts round the numbers (1.4 instead of 1.414 for 45°, 6 instead of 5.76 for 10°). On small offsets the difference is under 1/16 inch; on deep offsets it adds up. Pick the mode your crew uses and stay consistent.</p>
+<h3>Does this account for my bender's radius?</h3>
+<p>No. This page uses the point model behind the apprenticeship charts, where each bend is treated as a sharp corner. Real benders have a radius, so check your first piece before cutting a run.</p>
+
+<section class="app" aria-labelledby="appname">
+<h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
+<p>Raceway does this math on the job, offline: offsets, saddles, rolling offsets, 90° stubs and back-to-back bends, with tape-measure fractions, marks for the bender you use and a diagram for every bend. It also has voltage drop and box and conduit fill. $4.99 one-time, no account.</p>
+<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136">Raceway: Conduit Bending on the App Store</a></p>
+</section>
+
+<footer>© 2026 Oğuz Çamur · <a href="https://oguzcamurr.github.io/raceway-privacy/">Privacy</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+</main>
+<script>
+(function(){
+var ANG=[10,22.5,30,45,60],FM={10:6,22.5:2.6,30:2,45:1.4,60:1.2},FS={10:1/16,22.5:3/16,30:1/4,45:3/8,60:1/2};
+var st={a:30,m:"exact"};
+function rad(d){return d*Math.PI/180}
+function parse(v){v=String(v||"").trim().replace(/["”]/g,"").replace(/-/g," ");if(!v)return null;
+  var m=v.match(/^(\d+(?:\.\d+)?)?\s*(?:(\d+)\s*\/\s*(\d+))?$/);if(!m||(!m[1]&&!m[2]))return NaN;
+  var n=m[1]?parseFloat(m[1]):0;if(m[2]){if(+m[3]===0)return NaN;n+=m[2]/m[3]}return n}
+function frac(x,den){var neg=x<0;x=Math.abs(x);var t=Math.round(x*den),w=Math.floor(t/den),r=t%den;
+  if(r){var g=function(a,b){return b?g(b,a%b):a},k=g(r,den);r/=k;var d=den/k;return (neg?"−":"")+(w?w+" ":"")+r+"/"+d+"\""}return (neg?"−":"")+w+"\""}
+function num(x){return (Math.round(x*1000)/1000).toFixed(3)}
+var ab=document.getElementById("angles");ANG.forEach(function(a){var b=document.createElement("button");b.type="button";b.textContent=a+"°";b.dataset.a=a;b.setAttribute("aria-pressed",a===st.a);ab.appendChild(b)});
+ab.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;st.a=+b.dataset.a;[].forEach.call(ab.children,function(c){c.setAttribute("aria-pressed",+c.dataset.a===st.a)});calc()});
+var mb=document.getElementById("modes");mb.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;st.m=b.dataset.m;[].forEach.call(mb.children,function(c){c.setAttribute("aria-pressed",c.dataset.m===st.m)});calc()});
+["depth","obst","prec"].forEach(function(id){document.getElementById(id).addEventListener("input",calc)});
+var tb=document.getElementById("chart");ANG.forEach(function(a){var tr=document.createElement("tr");
+  tr.innerHTML="<td>"+a+"°</td><td>"+num(1/Math.sin(rad(a)))+"</td><td>"+FM[a]+"</td><td>"+num(Math.tan(rad(a)/2))+"\"</td><td>"+frac(FS[a],16)+"</td>";tb.appendChild(tr)});
+function stat(v,l){return "<div class='stat'><b>"+v+"</b><span>"+l+"</span></div>"}
+function calc(){var out=document.getElementById("out"),err=document.getElementById("err"),how=document.getElementById("how");out.innerHTML=err.textContent=how.innerHTML="";
+  var h=parse(document.getElementById("depth").value),x=parse(document.getElementById("obst").value),den=+document.getElementById("prec").value,a=st.a,f=st.m==="field";
+  if(h===null||isNaN(h)||h<=0||h>120){err.textContent="Enter an offset depth between 0 and 120 inches.";return}
+  if(x!==null&&(isNaN(x)||x<0||x>2400)){err.textContent="Distance to obstruction must be a positive number of inches.";return}
+  var mult=f?FM[a]:1/Math.sin(rad(a)),spacing=h*mult,shrink=f?h*FS[a]:h*Math.tan(rad(a)/2),run=h/Math.tan(rad(a));
+  out.innerHTML=stat(frac(spacing,den),"between bends ("+num(spacing)+"\")")+stat(frac(shrink,den),"shrink ("+num(shrink)+"\")");
+  var steps=["Distance between bends: "+num(h)+"\" × "+(f?FM[a]+" (field multiplier)":num(mult)+" (1 ÷ sin "+a+"°)")+" = "+num(spacing)+"\"",
+             "Shrink: "+num(h)+"\" × "+(f?frac(FS[a],16)+" per inch (field chart)":num(Math.tan(rad(a)/2))+" per inch (tan "+a/2+"°)")+" = "+num(shrink)+"\""];
+  if(x!==null){var m1,m2;
+    if(f){m2=x+shrink;m1=m2-spacing;steps.push("Mark 2: "+num(x)+"\" to obstruction + "+num(shrink)+"\" shrink = "+num(m2)+"\"","Mark 1: mark 2 − "+num(spacing)+"\" = "+num(m1)+"\"")}
+    else{m1=x-run;m2=m1+spacing;steps.push("Mark 1: "+num(x)+"\" to obstruction − "+num(run)+"\" the offset covers = "+num(m1)+"\"","Mark 2: mark 1 + "+num(spacing)+"\" = "+num(m2)+"\"")}
+    if(m1<0){err.textContent="The obstruction is too close to the end for this offset (mark 1 would be "+frac(-m1,den)+" past the end). Use a steeper angle or more distance.";}
+    else{out.innerHTML+=stat(frac(m1,den),"mark 1 from the end")+stat(frac(m2,den),"mark 2 from the end")}}
+  if(f)steps.push("Field multiplier "+FM[a]+" is rounded; the exact value is "+num(1/Math.sin(rad(a)))+".");
+  steps.forEach(function(s){var li=document.createElement("li");li.textContent=s;how.appendChild(li)})}
+calc();
+})();
+</script>
+</body>
+</html>
