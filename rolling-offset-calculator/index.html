@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rolling Offset Calculator for Conduit — True Offset, Bends and Shrink</title>
+<meta name="description" content="Free rolling offset calculator for conduit: true offset from rise and roll, distance between bends, shrink, marks and how far to tilt the offset, in tape-measure fractions.">
+<link rel="canonical" href="https://oguzcamurr.github.io/raceway-privacy/rolling-offset-calculator/">
+<meta name="apple-itunes-app" content="app-id=6821341136">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Raceway: Conduit Bending">
+<meta property="og:title" content="Rolling Offset Calculator for Conduit — True Offset, Bends and Shrink">
+<meta property="og:description" content="Free rolling offset calculator for conduit: true offset from rise and roll, distance between bends, shrink, marks and how far to tilt the offset, in tape-measure fractions.">
+<meta property="og:url" content="https://oguzcamurr.github.io/raceway-privacy/rolling-offset-calculator/">
+<style>
+:root{--ink:#14181f;--muted:#5a6270;--line:#d9dde3;--bg:#fff;--card:#f6f7f9;--field:#fff;--fline:#b9c0ca;--acc:#c96a12;--accbg:#fff4e8;--link:#9a4d06;--err:#a40000;--btn:#14181f;--btnfg:#fff}
+@media (prefers-color-scheme:dark){:root{--ink:#f4f4f2;--muted:#a3a8b0;--line:#2c3138;--bg:#0e1013;--card:#171a1f;--field:#0e1013;--fline:#3d434c;--acc:#f5a524;--accbg:#2a2214;--link:#f5a524;--err:#ff8a8a;--btn:#f4f4f2;--btnfg:#0e1013}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.35rem;margin:2em 0 .5em}h3{font-size:1.05rem;margin:1.4em 0 .3em}
+nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-current=page]{color:var(--ink);font-weight:600;text-decoration:none}
+p.lead{color:var(--muted);margin-top:0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+input,select{width:100%;font:inherit;color:var(--ink);padding:10px 12px;border:1px solid var(--fline);border-radius:8px;background:var(--field)}small{color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.seg button{flex:1;min-width:58px;font:inherit;color:var(--ink);padding:9px 6px;border:1px solid var(--fline);background:var(--field);border-radius:8px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.out{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.85rem}.err{color:var(--err);font-weight:600;margin-top:12px}
+ol.steps li{margin:.3em 0}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
+.note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
+a{color:var(--link)}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--btn);color:var(--btnfg);border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!important}
+.printbtn{font:inherit;padding:9px 14px;border:1px solid var(--fline);background:var(--field);color:var(--ink);border-radius:8px;cursor:pointer}
+@media print{nav.top,.store,.app,.printbtn,.related,footer{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{max-width:none;padding:0}h2{break-after:avoid;margin-top:1.2em}table{font-size:9.5pt;break-inside:avoid}th{background:#eee}a{color:#000}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Rolling Offset Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/rolling-offset-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates the true offset, distance between bends, shrink and tilt angle for a rolling conduit offset, in tape-measure fractions."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a rolling offset?","acceptedAnswer":{"@type":"Answer","text":"An offset that moves the conduit up (or down) and sideways at the same time. Instead of bending two separate offsets, you bend one offset sized for the diagonal and roll it to the needed angle."}},{"@type":"Question","name":"How do you calculate a rolling offset?","acceptedAnswer":{"@type":"Answer","text":"Square the rise and the roll, add them and take the square root: that is the true offset. Then bend it like any offset: distance between bends = true offset × multiplier, and shrink = true offset × shrink per inch."}},{"@type":"Question","name":"What angle do I roll the offset to?","acceptedAnswer":{"@type":"Answer","text":"Tilt the offset from vertical toward the roll by the angle whose tangent is roll ÷ rise. For a 6-inch rise and an 8-inch roll that is about 53° from vertical."}}]}
+</script>
+</head>
+<body>
+<main>
+<nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/">Offset</a> · <a href="../saddle-bend-calculator/">Saddle</a> · <a href="../90-degree-bend-calculator/">90° stub-up</a> · <a href="../rolling-offset-calculator/" aria-current="page">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
+<h1>Rolling Offset Calculator</h1>
+<p class="lead">Enter how far the conduit has to move up (rise) and sideways (roll). You get the true offset, the distance between bends, the shrink and how far to tilt the offset — in tape-measure fractions.</p>
+<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-rolling-offset-calculator&amp;mt=8" data-ct="web-rolling-offset-calculator">Get Raceway for iPhone on the App Store</a>
+
+<section class="card" aria-labelledby="calc">
+  <h2 id="calc" style="margin-top:0">Calculate a rolling offset</h2>
+  <div class="grid">
+    <div><label for="rise">Rise (inches)</label><input id="rise" inputmode="decimal" value="6" aria-describedby="rh"><small id="rh">vertical move, center to center</small></div>
+    <div><label for="roll">Roll (inches)</label><input id="roll" inputmode="decimal" value="8" aria-describedby="lh"><small id="lh">sideways move, center to center</small></div>
+    <div><label for="obst">Distance to obstruction (optional)</label><input id="obst" inputmode="decimal" placeholder="e.g. 48" aria-describedby="oh"><small id="oh">from the conduit end you hook your tape on</small></div>
+    <div><label for="prec">Round to</label><select id="prec"><option value="16">1/16"</option><option value="8">1/8"</option><option value="32">1/32"</option></select></div>
+  </div>
+  <div style="margin-top:14px"><label id="angl">Bend angle</label><div class="seg" role="group" aria-labelledby="angl" id="angles"></div></div>
+  <div style="margin-top:14px"><label id="model">Numbers</label><div class="seg" role="group" aria-labelledby="model" id="modes"></div></div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="err" id="err" role="alert"></div>
+  <ol class="steps" id="how"></ol>
+</section>
+
+<h2>How to bend a rolling offset</h2>
+<ol>
+<li><b>Measure rise and roll</b> between the same points on both runs (center to center, or bottom to bottom).</li>
+<li><b>Find the true offset:</b> √(rise² + roll²). A 6-8-10 (3-4-5) triangle is a quick check.</li>
+<li><b>Bend a normal offset</b> for the true offset: distance between bends = true offset × multiplier. Keep both bends in one plane.</li>
+<li><b>Roll it into place:</b> tilt the offset from vertical toward the roll by the angle shown (the angle whose tangent is roll ÷ rise).</li>
+</ol>
+<h3>Worked example</h3>
+<p>Rise 6", roll 8": true offset √(36 + 64) = 10". With 30° bends: 10" × 2 = 20" between bends, shrink about 2 11/16" (10" × 0.268). Tilt the offset 53.1° from vertical toward the roll.</p>
+<p class="note"><b>About the numbers:</b> these calculators use the point model behind apprenticeship charts — each bend is treated as a sharp corner. Real benders have a radius and some springback, which shift the marks slightly. Bend and measure a test piece from scrap before you bend a run. This page uses no electrical-code data.</p>
+
+<h2>Common questions</h2>
+<h3>What is a rolling offset?</h3>
+<p>An offset that moves the conduit up (or down) and sideways at the same time. Instead of bending two separate offsets, you bend one offset sized for the diagonal and roll it to the needed angle.</p>
+<h3>How do you calculate a rolling offset?</h3>
+<p>Square the rise and the roll, add them and take the square root: that is the true offset. Then bend it like any offset: distance between bends = true offset × multiplier, and shrink = true offset × shrink per inch.</p>
+<h3>What angle do I roll the offset to?</h3>
+<p>Tilt the offset from vertical toward the roll by the angle whose tangent is roll ÷ rise. For a 6-inch rise and an 8-inch roll that is about 53° from vertical.</p>
+
+<section class="related" aria-labelledby="rel">
+<h2 id="rel">More free conduit bending calculators</h2>
+<ul class="tools">
+<li><a href="../conduit-offset-calculator/">Conduit offset calculator — distance between bends, shrink and marks</a></li>
+<li><a href="../saddle-bend-calculator/">Saddle bend calculator — 3-point and 4-point saddles</a></li>
+<li><a href="../90-degree-bend-calculator/">90° bend calculator — stub-up mark and bender take-up</a></li>
+<li><a href="../conduit-bending-chart/">Conduit bending chart — printable multipliers, shrink and take-up</a></li>
+<li><a href="../conduit-bending-calculator/">All conduit bending calculators</a></li>
+</ul>
+</section>
+
+<section class="app" aria-labelledby="appname">
+<h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
+<p>The free calculators on this site use the point model. Raceway does this math on the job, offline, and corrects the marks for the bender you use (built-in Greenlee and Klein EMT bender profiles, or measure your own with test bends): offsets, 3- and 4-point saddles, rolling offsets, 90° stubs, back-to-back 90s and parallel offsets, in tape-measure fractions with a diagram for every bend and a step-by-step Bend mode. $4.99 one-time on the US App Store, no account, no ads.</p>
+<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-rolling-offset-calculator&amp;mt=8" data-ct="web-rolling-offset-calculator">Raceway: Conduit Bending on the App Store</a></p>
+</section>
+
+<footer>© 2026 Oğuz Çamur · <a href="../">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+</main>
+<script src="../assets/bend.js"></script>
+<script>
+(function(){
+var RB=window.RacewayBend,$=function(id){return document.getElementById(id)};
+var st={a:30,m:"exact"};
+RB.seg($("angles"),RB.ANGLES.map(function(a){return {v:a,label:a+"°"}}),st.a,function(v){st.a=v;calc()});
+RB.seg($("modes"),[{v:"exact",label:"Exact (1 ÷ sin θ)"},{v:"field",label:"Field chart (6, 2.6, 2, 1.4, 1.2)"}],st.m,function(v){st.m=v;calc()});
+["rise","roll","obst","prec"].forEach(function(id){$(id).addEventListener("input",calc)});
+function calc(){var out=$("out"),err=$("err"),how=$("how");out.innerHTML="";err.textContent="";how.innerHTML="";
+  var den=+$("prec").value,ri=RB.parse($("rise").value),ro=RB.parse($("roll").value),x=RB.parse($("obst").value),a=st.a,n=RB.num,fr=function(v){return RB.frac(v,den)};
+  if(ri===null||isNaN(ri)||ri<0||ri>120||ro===null||isNaN(ro)||ro<0||ro>120||ri+ro<=0){err.textContent="Enter a rise and a roll between 0 and 120 inches (not both 0).";return}
+  if(x!==null&&(isNaN(x)||x<0||x>2400)){err.textContent="Distance to obstruction must be a positive number of inches.";return}
+  var r=RB.rolling(ri,ro,a,st.m,x);
+  out.innerHTML=RB.stat(fr(r.trueOffset),"true offset ("+n(r.trueOffset)+"\")")+RB.stat(fr(r.spacing),"between bends ("+n(r.spacing)+"\")")+RB.stat(fr(r.shrink),"shrink ("+n(r.shrink)+"\")")+RB.stat(r.tilt.toFixed(1)+"°","tilt from vertical toward the roll");
+  var steps=["True offset: √("+n(ri)+"² + "+n(ro)+"²) = "+n(r.trueOffset)+"\"",
+    "Distance between bends: "+n(r.trueOffset)+"\" × "+(r.field?r.mult+" (field multiplier)":n(r.mult)+" (1 ÷ sin "+a+"°)")+" = "+n(r.spacing)+"\"",
+    "Shrink: "+n(r.trueOffset)+"\" × "+(r.field?RB.frac(r.shrinkPerInch,16)+" per inch (field chart)":n(r.shrinkPerInch)+" per inch (tan "+(a/2)+"°)")+" = "+n(r.shrink)+"\""];
+  if(r.marks){var m=r.marks;
+    if(r.field)steps.push("Mark 2: "+n(x)+"\" to obstruction + "+n(r.shrink)+"\" shrink = "+n(m[1])+"\"","Mark 1: mark 2 − "+n(r.spacing)+"\" = "+n(m[0])+"\"");
+    else steps.push("Mark 1: "+n(x)+"\" to obstruction − "+n(r.run)+"\" the offset covers = "+n(m[0])+"\"","Mark 2: mark 1 + "+n(r.spacing)+"\" = "+n(m[1])+"\"");
+    if(r.tooClose)err.textContent="The obstruction is too close to the end for this offset (mark 1 would be "+fr(-m[0])+" past the end). Use a steeper angle or more distance.";
+    else out.innerHTML+=RB.stat(fr(m[0]),"mark 1 from the end")+RB.stat(fr(m[1]),"mark 2 from the end")}
+  steps.push("Bend a normal "+n(r.trueOffset)+"\" offset (both bends in one plane), then tilt it "+r.tilt.toFixed(1)+"° from vertical toward the roll.");
+  RB.steps(how,steps)}
+calc();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>90 Degree Conduit Bend Calculator — Stub-Up Mark and Take-Up</title>
+<meta name="description" content="Free 90° stub-up calculator: where to mark EMT for a stub of any height using your bender's take-up (deduct), plus a take-up chart for 1/2&quot;, 3/4&quot;, 1&quot; and 1-1/4&quot; EMT benders.">
+<link rel="canonical" href="https://oguzcamurr.github.io/raceway-privacy/90-degree-bend-calculator/">
+<meta name="apple-itunes-app" content="app-id=6821341136">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Raceway: Conduit Bending">
+<meta property="og:title" content="90 Degree Conduit Bend Calculator — Stub-Up Mark and Take-Up">
+<meta property="og:description" content="Free 90° stub-up calculator: where to mark EMT for a stub of any height using your bender's take-up (deduct), plus a take-up chart for 1/2&quot;, 3/4&quot;, 1&quot; and 1-1/4&quot; EMT benders.">
+<meta property="og:url" content="https://oguzcamurr.github.io/raceway-privacy/90-degree-bend-calculator/">
+<style>
+:root{--ink:#14181f;--muted:#5a6270;--line:#d9dde3;--bg:#fff;--card:#f6f7f9;--field:#fff;--fline:#b9c0ca;--acc:#c96a12;--accbg:#fff4e8;--link:#9a4d06;--err:#a40000;--btn:#14181f;--btnfg:#fff}
+@media (prefers-color-scheme:dark){:root{--ink:#f4f4f2;--muted:#a3a8b0;--line:#2c3138;--bg:#0e1013;--card:#171a1f;--field:#0e1013;--fline:#3d434c;--acc:#f5a524;--accbg:#2a2214;--link:#f5a524;--err:#ff8a8a;--btn:#f4f4f2;--btnfg:#0e1013}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.35rem;margin:2em 0 .5em}h3{font-size:1.05rem;margin:1.4em 0 .3em}
+nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-current=page]{color:var(--ink);font-weight:600;text-decoration:none}
+p.lead{color:var(--muted);margin-top:0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+input,select{width:100%;font:inherit;color:var(--ink);padding:10px 12px;border:1px solid var(--fline);border-radius:8px;background:var(--field)}small{color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.seg button{flex:1;min-width:58px;font:inherit;color:var(--ink);padding:9px 6px;border:1px solid var(--fline);background:var(--field);border-radius:8px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.out{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.85rem}.err{color:var(--err);font-weight:600;margin-top:12px}
+ol.steps li{margin:.3em 0}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
+.note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
+a{color:var(--link)}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--btn);color:var(--btnfg);border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!important}
+.printbtn{font:inherit;padding:9px 14px;border:1px solid var(--fline);background:var(--field);color:var(--ink);border-radius:8px;cursor:pointer}
+@media print{nav.top,.store,.app,.printbtn,.related,footer{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{max-width:none;padding:0}h2{break-after:avoid;margin-top:1.2em}table{font-size:9.5pt;break-inside:avoid}th{background:#eee}a{color:#000}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"90° Stub-Up and Take-Up Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/90-degree-bend-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates the mark for a 90° conduit stub-up from the stub height and the bender take-up, and finds a bender's take-up from a test bend."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is take-up on a conduit bender?","acceptedAnswer":{"@type":"Answer","text":"Take-up, also called deduct, is the amount you subtract from the stub height to find where to mark the conduit for a 90. It depends on the bender shoe and the conduit size, and it is usually printed on the bender."}},{"@type":"Question","name":"What is the take-up for 1/2 inch EMT?","acceptedAnswer":{"@type":"Answer","text":"5 inches on common 1/2-inch EMT hand benders, such as the Greenlee 840 and Klein 51606. Common 3/4-inch EMT benders use 6 inches and 1-inch benders 8 inches. Always check the number on your own bender."}},{"@type":"Question","name":"How do I find my bender's take-up?","acceptedAnswer":{"@type":"Answer","text":"Mark a scrap piece, bend a 90 with the mark on the arrow, and measure the stub from the end to the back of the bend. Take-up = measured stub − mark distance. For example, a mark at 7 inches that gives a 12-inch stub means a 5-inch take-up."}},{"@type":"Question","name":"How do I measure a stub-up?","acceptedAnswer":{"@type":"Answer","text":"From the end of the conduit to the back (outside) of the 90, with the stub plumb. That is the stub height this calculator uses."}},{"@type":"Question","name":"What is the shortest stub I can bend?","acceptedAnswer":{"@type":"Answer","text":"A little longer than the take-up. If the stub height is equal to or shorter than the take-up, the mark would be at or past the end of the conduit."}}]}
+</script>
+</head>
+<body>
+<main>
+<nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/">Offset</a> · <a href="../saddle-bend-calculator/">Saddle</a> · <a href="../90-degree-bend-calculator/" aria-current="page">90° stub-up</a> · <a href="../rolling-offset-calculator/">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
+<h1>90° Bend Calculator: Stub-Up Mark and Take-Up</h1>
+<p class="lead">Enter the stub height you need and your bender's take-up. You get where to put the mark, in tape-measure fractions. You can also work out your bender's real take-up from one test bend.</p>
+<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Get Raceway for iPhone on the App Store</a>
+
+<section class="card" aria-labelledby="calc">
+  <h2 id="calc" style="margin-top:0">Calculate a 90° stub-up</h2>
+  <div class="grid">
+    <div><label for="stub">Stub height (inches)</label><input id="stub" inputmode="decimal" value="12" aria-describedby="sh"><small id="sh">from the conduit end to the back of the 90</small></div>
+    <div id="cust" hidden><label for="tu">Take-up (inches)</label><input id="tu" inputmode="decimal" value="5" aria-describedby="tuh"><small id="tuh">the number on your bender</small></div>
+    <div><label for="prec">Round to</label><select id="prec"><option value="16">1/16"</option><option value="8">1/8"</option><option value="32">1/32"</option></select></div>
+  </div>
+  <div style="margin-top:14px"><label id="tul">Bender take-up</label><div class="seg" role="group" aria-labelledby="tul" id="sizes"></div>
+    <small>Common EMT hand-bender values. Take-up varies by bender: check the number on yours.</small></div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="err" id="err" role="alert"></div>
+  <ol class="steps" id="how"></ol>
+</section>
+
+<section class="card" aria-labelledby="calc2" style="margin-top:18px">
+  <h2 id="calc2" style="margin-top:0">Find your bender's take-up</h2>
+  <p style="margin-top:0">Mark a scrap piece, bend a 90 with the mark on the arrow, then measure the stub to the back of the bend.</p>
+  <div class="grid">
+    <div><label for="tm">Mark was at (inches from the end)</label><input id="tm" inputmode="decimal" value="7"></div>
+    <div><label for="ts">Measured stub (inches)</label><input id="ts" inputmode="decimal" value="12"></div>
+  </div>
+  <div class="out" id="out2" aria-live="polite"></div>
+  <div class="err" id="err2" role="alert"></div>
+</section>
+
+<h2>90° take-up chart for EMT hand benders</h2>
+<div class="tw"><table>
+<thead><tr><th>Conduit</th><th>Take-up (deduct)</th></tr></thead>
+<tbody>
+<tr><td>1/2" EMT</td><td>5"</td></tr>
+<tr><td>3/4" EMT</td><td>6"</td></tr>
+<tr><td>1" EMT</td><td>8"</td></tr>
+<tr><td>1-1/4" EMT</td><td>11"</td></tr>
+</tbody>
+</table></div>
+<p><small>Values printed for common EMT hand benders, for example Greenlee's Site-Rite 840–843 and Klein's 51604–51607. Other benders, rigid and IMC differ. Use the number on your own bender, or measure it with the calculator above.</small></p>
+
+<h2>How to bend a 90° stub-up</h2>
+<ol>
+<li><b>Measure the stub height</b> you need, from the end of the conduit to the back (outside) of the finished 90.</li>
+<li><b>Subtract the take-up</b> for your bender and conduit size, and mark the conduit that far from the end.</li>
+<li><b>Line the mark up with the arrow</b> on the bender and bend with steady foot pressure on the heel until the stub is plumb. Check it with a level.</li>
+<li><b>Measure the stub</b> to the back of the bend. If it comes out long or short by the same amount every time, your take-up is different: use "Find your bender's take-up" above.</li>
+</ol>
+<h3>Worked example</h3>
+<p>A 12" stub in 1/2" EMT with a 5" take-up: mark at 12" − 5" = 7" from the end. An 18" stub in 3/4" EMT with a 6" take-up: mark at 12".</p>
+<h3>Back-to-back 90s</h3>
+<p>For a U shape, bend the first 90 as above. Hook your tape on the back of that stub, mark the back-to-back distance, line the mark up with the star (the back-of-90 mark on many benders) and bend the second 90 with the bender turned around, so both stubs point the same way.</p>
+<p class="note"><b>About the numbers:</b> these calculators use the point model behind apprenticeship charts — each bend is treated as a sharp corner. Real benders have a radius and some springback, which shift the marks slightly. Bend and measure a test piece from scrap before you bend a run. This page uses no electrical-code data.</p>
+
+<h2>Common questions</h2>
+<h3>What is take-up on a conduit bender?</h3>
+<p>Take-up, also called deduct, is the amount you subtract from the stub height to find where to mark the conduit for a 90. It depends on the bender shoe and the conduit size, and it is usually printed on the bender.</p>
+<h3>What is the take-up for 1/2 inch EMT?</h3>
+<p>5 inches on common 1/2-inch EMT hand benders, such as the Greenlee 840 and Klein 51606. Common 3/4-inch EMT benders use 6 inches and 1-inch benders 8 inches. Always check the number on your own bender.</p>
+<h3>How do I find my bender's take-up?</h3>
+<p>Mark a scrap piece, bend a 90 with the mark on the arrow, and measure the stub from the end to the back of the bend. Take-up = measured stub − mark distance. For example, a mark at 7 inches that gives a 12-inch stub means a 5-inch take-up.</p>
+<h3>How do I measure a stub-up?</h3>
+<p>From the end of the conduit to the back (outside) of the 90, with the stub plumb. That is the stub height this calculator uses.</p>
+<h3>What is the shortest stub I can bend?</h3>
+<p>A little longer than the take-up. If the stub height is equal to or shorter than the take-up, the mark would be at or past the end of the conduit.</p>
+
+<section class="related" aria-labelledby="rel">
+<h2 id="rel">More free conduit bending calculators</h2>
+<ul class="tools">
+<li><a href="../conduit-offset-calculator/">Conduit offset calculator — distance between bends, shrink and marks</a></li>
+<li><a href="../saddle-bend-calculator/">Saddle bend calculator — 3-point and 4-point saddles</a></li>
+<li><a href="../rolling-offset-calculator/">Rolling offset calculator — true offset and roll angle</a></li>
+<li><a href="../conduit-bending-chart/">Conduit bending chart — printable multipliers, shrink and take-up</a></li>
+<li><a href="../conduit-bending-calculator/">All conduit bending calculators</a></li>
+</ul>
+</section>
+
+<section class="app" aria-labelledby="appname">
+<h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
+<p>The free calculators on this site use the point model. Raceway does this math on the job, offline, and corrects the marks for the bender you use (built-in Greenlee and Klein EMT bender profiles, or measure your own with test bends): offsets, 3- and 4-point saddles, rolling offsets, 90° stubs, back-to-back 90s and parallel offsets, in tape-measure fractions with a diagram for every bend and a step-by-step Bend mode. $4.99 one-time on the US App Store, no account, no ads.</p>
+<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Raceway: Conduit Bending on the App Store</a></p>
+</section>
+
+<footer>© 2026 Oğuz Çamur · <a href="../">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+</main>
+<script src="../assets/bend.js"></script>
+<script>
+(function(){
+var RB=window.RacewayBend,$=function(id){return document.getElementById(id)};
+var st={tu:5};
+var items=RB.TAKE_UP.map(function(t){return {v:t.inches,label:t.size+": "+t.inches+"\""}});items.push({v:"custom",label:"Other / custom"});
+RB.seg($("sizes"),items,st.tu,function(v){st.tu=v;calc()});
+["stub","tu","prec"].forEach(function(id){$(id).addEventListener("input",calc)});
+["tm","ts"].forEach(function(id){$(id).addEventListener("input",calc2)});
+function calc(){var out=$("out"),err=$("err"),how=$("how");out.innerHTML="";err.textContent="";how.innerHTML="";
+  var custom=st.tu==="custom";$("cust").hidden=!custom;
+  var den=+$("prec").value,s=RB.parse($("stub").value),t=custom?RB.parse($("tu").value):st.tu,n=RB.num;
+  if(s===null||isNaN(s)||s<=0||s>240){err.textContent="Enter a stub height between 0 and 240 inches.";return}
+  if(t===null||isNaN(t)||t<=0||t>30){err.textContent="Enter a take-up between 0 and 30 inches (it is printed on most benders).";return}
+  var r=RB.stub90(s,t);
+  if(r.tooShort){err.textContent="A "+RB.frac(s,den)+" stub is not longer than the "+RB.frac(t,den)+" take-up, so the mark would be at or past the end. The shortest stub this bender makes is a little longer than its take-up.";return}
+  out.innerHTML=RB.stat(RB.frac(r.mark,den),"mark from the conduit end ("+n(r.mark)+"\")")+RB.stat(RB.frac(t,den),"take-up used");
+  RB.steps(how,["Mark: "+n(s)+"\" stub − "+n(t)+"\" take-up = "+n(r.mark)+"\" from the end","Line the mark up with the bender arrow and bend until the stub is plumb."])}
+function calc2(){var out=$("out2"),err=$("err2");out.innerHTML="";err.textContent="";
+  var m=RB.parse($("tm").value),s=RB.parse($("ts").value);
+  if(m===null||isNaN(m)||m<=0||s===null||isNaN(s)||s<=0){err.textContent="Enter both the mark distance and the measured stub in inches.";return}
+  var t=RB.takeUpFromTest(m,s);
+  if(t<=0){err.textContent="The measured stub should be longer than the mark distance. Measure from the end to the back of the 90.";return}
+  out.innerHTML=RB.stat(RB.frac(t,16),"your take-up ("+RB.num(t)+"\" = "+RB.num(s)+"\" − "+RB.num(m)+"\")")}
+calc();calc2();
+})();
+</script>
+</body>
+</html>

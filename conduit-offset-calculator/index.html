@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Conduit Offset Calculator — Multiplier, Shrink and Mark Locations</title>
 <link rel="canonical" href="https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/">
+<meta name="apple-itunes-app" content="app-id=6821341136">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Raceway: Conduit Bending">
 <meta property="og:title" content="Conduit Offset Calculator — Multiplier, Shrink and Mark Locations">
 <meta property="og:description" content="Distance between bends, shrink and mark locations for conduit offsets, in tape-measure fractions. Exact trig or field-chart multipliers.">
 <meta property="og:url" content="https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/">
@@ -26,6 +28,7 @@ ol.steps li{margin:.3em 0}table{border-collapse:collapse;width:100%;font-size:.9
 a{color:#9a4d06}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
 svg{max-width:100%;height:auto}
 .store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--ink);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-current=page]{color:var(--ink);font-weight:600;text-decoration:none}ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Conduit Offset Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/conduit-offset-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates the distance between bends, shrink and mark locations for a conduit offset, in tape-measure fractions."}
@@ -35,15 +38,18 @@ svg{max-width:100%;height:auto}
 {"@type":"Question","name":"What is the multiplier for a 30 degree offset?","acceptedAnswer":{"@type":"Answer","text":"2. The exact value is 1 ÷ sin 30° = 2.000, so a 30° offset needs 2 inches between bends for every inch of offset depth."}},
 {"@type":"Question","name":"How much does a 30 degree offset shrink?","acceptedAnswer":{"@type":"Answer","text":"About 1/4 inch per inch of offset depth. The exact value is tan 15° = 0.268 inch per inch, so a 4 inch offset shrinks about 1 1/16 inches."}},
 {"@type":"Question","name":"Why do field-chart multipliers differ from the calculator?","acceptedAnswer":{"@type":"Answer","text":"Field charts round the numbers (1.4 instead of 1.414 for 45°, 6 instead of 5.76 for 10°). On small offsets the difference is under 1/16 inch; on deep offsets it adds up. Pick the mode your crew uses and stay consistent."}},
-{"@type":"Question","name":"Does this account for my bender's radius?","acceptedAnswer":{"@type":"Answer","text":"No. This page uses the point model behind the apprenticeship charts, where each bend is treated as a sharp corner. Real benders have a radius, so check your first piece before cutting a run."}}
+{"@type":"Question","name":"Does this account for my bender's radius?","acceptedAnswer":{"@type":"Answer","text":"No. This page uses the point model behind the apprenticeship charts, where each bend is treated as a sharp corner. Real benders have a radius, so check your first piece before cutting a run."}},
+{"@type":"Question","name":"How do you calculate a conduit offset?","acceptedAnswer":{"@type":"Answer","text":"Multiply the offset depth by the multiplier for your bend angle (1 ÷ sin θ) to get the distance between the two bends, and multiply the depth by the shrink per inch (tan of half the angle) to get the shrink. A 6 inch offset at 30° needs 12 inches between bends and shrinks about 1 5/8 inches."}},
+{"@type":"Question","name":"What is the multiplier for a 45 degree offset?","acceptedAnswer":{"@type":"Answer","text":"1.414 (1 ÷ sin 45°), which field charts round to 1.4. The shrink is 0.414 inch per inch of offset depth, about 3/8 inch."}}
 ]}
 </script>
 </head>
 <body>
 <main>
+<nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/" aria-current="page">Offset</a> · <a href="../saddle-bend-calculator/">Saddle</a> · <a href="../90-degree-bend-calculator/">90° stub-up</a> · <a href="../rolling-offset-calculator/">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
 <h1>Conduit Offset Calculator</h1>
 <p class="lead">Enter the offset depth and pick an angle. You get the distance between bends, the shrink and, if you enter the distance to the obstruction, where to put both marks — in tape-measure fractions.</p>
-<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136">Get Raceway for iPhone on the App Store</a>
+<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Get Raceway for iPhone on the App Store</a>
 
 <section class="card" aria-labelledby="calc">
   <h2 id="calc" style="margin-top:0">Calculate an offset</h2>
@@ -69,6 +75,7 @@ svg{max-width:100%;height:auto}
 <thead><tr><th>Angle</th><th>Multiplier (exact)</th><th>Field chart</th><th>Shrink per inch (exact)</th><th>Field chart shrink</th></tr></thead>
 <tbody id="chart"></tbody>
 </table>
+<p>Need it on paper? The <a href="../conduit-bending-chart/">printable conduit bending chart</a> adds distance-between-bends and shrink tables for 1" to 24" offsets, saddle numbers and 90° take-up.</p>
 
 <h2>How to bend an offset</h2>
 <ol>
@@ -90,14 +97,29 @@ svg{max-width:100%;height:auto}
 <p>Field charts round the numbers (1.4 instead of 1.414 for 45°, 6 instead of 5.76 for 10°). On small offsets the difference is under 1/16 inch; on deep offsets it adds up. Pick the mode your crew uses and stay consistent.</p>
 <h3>Does this account for my bender's radius?</h3>
 <p>No. This page uses the point model behind the apprenticeship charts, where each bend is treated as a sharp corner. Real benders have a radius, so check your first piece before cutting a run.</p>
+<h3>How do you calculate a conduit offset?</h3>
+<p>Multiply the offset depth by the multiplier for your bend angle (1 ÷ sin θ) to get the distance between the two bends, and multiply the depth by the shrink per inch (tan of half the angle) to get the shrink. A 6 inch offset at 30° needs 12 inches between bends and shrinks about 1 5/8 inches.</p>
+<h3>What is the multiplier for a 45 degree offset?</h3>
+<p>1.414 (1 ÷ sin 45°), which field charts round to 1.4. The shrink is 0.414 inch per inch of offset depth, about 3/8 inch.</p>
+
+<section class="related" aria-labelledby="rel">
+<h2 id="rel">More free conduit bending calculators</h2>
+<ul class="tools">
+<li><a href="../saddle-bend-calculator/">Saddle bend calculator — 3-point and 4-point saddles</a></li>
+<li><a href="../90-degree-bend-calculator/">90° bend calculator — stub-up mark and bender take-up</a></li>
+<li><a href="../rolling-offset-calculator/">Rolling offset calculator — true offset and roll angle</a></li>
+<li><a href="../conduit-bending-chart/">Conduit bending chart — printable multipliers, shrink and take-up</a></li>
+<li><a href="../conduit-bending-calculator/">All conduit bending calculators</a></li>
+</ul>
+</section>
 
 <section class="app" aria-labelledby="appname">
 <h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
 <p>Raceway does this math on the job, offline: offsets, saddles, rolling offsets, 90° stubs and back-to-back bends, with tape-measure fractions, marks for the bender you use and a diagram for every bend. It also has voltage drop and box and conduit fill. $4.99 one-time, no account.</p>
-<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136">Raceway: Conduit Bending on the App Store</a></p>
+<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Raceway: Conduit Bending on the App Store</a></p>
 </section>
 
-<footer>© 2026 Oğuz Çamur · <a href="https://oguzcamurr.github.io/raceway-privacy/">Privacy</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+<footer>© 2026 Oğuz Çamur · <a href="https://oguzcamurr.github.io/raceway-privacy/">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
 </main>
 <script>
 (function(){

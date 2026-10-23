@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saddle Bend Calculator — 3-Point and 4-Point Conduit Saddles</title>
+<meta name="description" content="Free saddle bend calculator for EMT and conduit: 3-point saddle (45° center) and 4-point saddle marks, distance between bends and shrink, in tape-measure fractions.">
+<link rel="canonical" href="https://oguzcamurr.github.io/raceway-privacy/saddle-bend-calculator/">
+<meta name="apple-itunes-app" content="app-id=6821341136">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Raceway: Conduit Bending">
+<meta property="og:title" content="Saddle Bend Calculator — 3-Point and 4-Point Conduit Saddles">
+<meta property="og:description" content="Free saddle bend calculator for EMT and conduit: 3-point saddle (45° center) and 4-point saddle marks, distance between bends and shrink, in tape-measure fractions.">
+<meta property="og:url" content="https://oguzcamurr.github.io/raceway-privacy/saddle-bend-calculator/">
+<style>
+:root{--ink:#14181f;--muted:#5a6270;--line:#d9dde3;--bg:#fff;--card:#f6f7f9;--field:#fff;--fline:#b9c0ca;--acc:#c96a12;--accbg:#fff4e8;--link:#9a4d06;--err:#a40000;--btn:#14181f;--btnfg:#fff}
+@media (prefers-color-scheme:dark){:root{--ink:#f4f4f2;--muted:#a3a8b0;--line:#2c3138;--bg:#0e1013;--card:#171a1f;--field:#0e1013;--fline:#3d434c;--acc:#f5a524;--accbg:#2a2214;--link:#f5a524;--err:#ff8a8a;--btn:#f4f4f2;--btnfg:#0e1013}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .3em}h2{font-size:1.35rem;margin:2em 0 .5em}h3{font-size:1.05rem;margin:1.4em 0 .3em}
+nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-current=page]{color:var(--ink);font-weight:600;text-decoration:none}
+p.lead{color:var(--muted);margin-top:0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+input,select{width:100%;font:inherit;color:var(--ink);padding:10px 12px;border:1px solid var(--fline);border-radius:8px;background:var(--field)}small{color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.seg button{flex:1;min-width:58px;font:inherit;color:var(--ink);padding:9px 6px;border:1px solid var(--fline);background:var(--field);border-radius:8px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.out{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.85rem}.err{color:var(--err);font-weight:600;margin-top:12px}
+ol.steps li{margin:.3em 0}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
+.note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
+a{color:var(--link)}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--btn);color:var(--btnfg);border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!important}
+.printbtn{font:inherit;padding:9px 14px;border:1px solid var(--fline);background:var(--field);color:var(--ink);border-radius:8px;cursor:pointer}
+@media print{nav.top,.store,.app,.printbtn,.related,footer{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{max-width:none;padding:0}h2{break-after:avoid;margin-top:1.2em}table{font-size:9.5pt;break-inside:avoid}th{background:#eee}a{color:#000}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Saddle Bend Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/saddle-bend-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates center and outer marks for a 3-point conduit saddle and all four marks for a 4-point saddle, with shrink, in tape-measure fractions."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the multiplier for a 3-point saddle?","acceptedAnswer":{"@type":"Answer","text":"For the common 45° center with 22.5° outer bends, the field rule is 2.5: the outer marks go 2 1/2 inches from the center mark for every inch of saddle height. The exact point-model value is 1 ÷ sin 22.5° = 2.613."}},{"@type":"Question","name":"How much does a 3-point saddle shrink?","acceptedAnswer":{"@type":"Answer","text":"Move the center mark 3/16 inch farther from the end for every inch of saddle height (the exact value is tan 11.25° = 0.199 inch). The whole saddle uses twice that, about 3/8 inch of conduit per inch of height."}},{"@type":"Question","name":"What is a saddle bend in conduit?","acceptedAnswer":{"@type":"Answer","text":"A saddle carries the conduit over an obstruction, such as a pipe crossing the run, and brings it back to its original line. A 3-point saddle uses three bends; a 4-point saddle is two offsets with a straight section over the obstruction."}},{"@type":"Question","name":"When should I use a 4-point saddle instead of a 3-point?","acceptedAnswer":{"@type":"Answer","text":"When the obstruction is wide, such as a box, beam or duct, or when a 3-point saddle would be too tall or too tight to pull wire through easily."}},{"@type":"Question","name":"What is the saddle mark on a bender?","acceptedAnswer":{"@type":"Answer","text":"Many hand benders have a mark for the center bend of a 3-point saddle, often a rim notch or a teardrop. Line the center mark on the conduit up with it; the outer bends go on the arrow. Markings differ by manufacturer, so check your bender's guide."}}]}
+</script>
+</head>
+<body>
+<main>
+<nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/">Offset</a> · <a href="../saddle-bend-calculator/" aria-current="page">Saddle</a> · <a href="../90-degree-bend-calculator/">90° stub-up</a> · <a href="../rolling-offset-calculator/">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
+<h1>Saddle Bend Calculator</h1>
+<p class="lead">Marks for a 3-point or 4-point saddle over a pipe, beam or other obstruction: center and outer marks, distance between bends and shrink, in tape-measure fractions.</p>
+<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-saddle-bend-calculator&amp;mt=8" data-ct="web-saddle-bend-calculator">Get Raceway for iPhone on the App Store</a>
+
+<section class="card" aria-labelledby="calc">
+  <h2 id="calc" style="margin-top:0">Calculate a saddle</h2>
+  <div style="margin-bottom:14px"><label id="typel">Saddle</label><div class="seg" role="group" aria-labelledby="typel" id="type"></div></div>
+  <div class="grid">
+    <div><label for="h">Obstruction height (inches)</label><input id="h" inputmode="decimal" value="2" aria-describedby="hh"><small id="hh">how far the conduit has to rise; add any clearance you want</small></div>
+    <div id="p3x"><label for="x3">Distance to center of obstruction (optional)</label><input id="x3" inputmode="decimal" placeholder="e.g. 30" aria-describedby="x3h"><small id="x3h">from the conduit end you hook your tape on</small></div>
+    <div id="p4w" hidden><label for="w">Obstruction width (inches)</label><input id="w" inputmode="decimal" value="10" aria-describedby="wh"><small id="wh">how long the conduit must stay at full height</small></div>
+    <div id="p4x" hidden><label for="x4">Distance to near side of obstruction (optional)</label><input id="x4" inputmode="decimal" placeholder="e.g. 40" aria-describedby="x4h"><small id="x4h">from the conduit end you hook your tape on</small></div>
+    <div><label for="prec">Round to</label><select id="prec"><option value="16">1/16"</option><option value="8">1/8"</option><option value="32">1/32"</option></select></div>
+  </div>
+  <div style="margin-top:14px" id="p3a"><label id="centl">Center bend</label><div class="seg" role="group" aria-labelledby="centl" id="center"></div></div>
+  <div style="margin-top:14px" id="p4a" hidden><label id="angl">Bend angle (all four bends)</label><div class="seg" role="group" aria-labelledby="angl" id="angles"></div></div>
+  <div style="margin-top:14px"><label id="model">Numbers</label><div class="seg" role="group" aria-labelledby="model" id="modes"></div>
+    <small>Field: 2.5 and 3/16" per inch for a 3-point saddle; chart multipliers (6, 2.6, 2, 1.4, 1.2) for a 4-point.</small></div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="err" id="err" role="alert"></div>
+  <ol class="steps" id="how"></ol>
+</section>
+
+<h2>How to bend a 3-point saddle</h2>
+<ol>
+<li><b>Measure</b> the height of the obstruction (plus any clearance) and the distance from the conduit end to the center of the obstruction.</li>
+<li><b>Center mark:</b> distance to the center + 3/16" for every inch of height. This is the shrink up to the center of the saddle.</li>
+<li><b>Outer marks:</b> 2 1/2 × the height on each side of the center mark.</li>
+<li><b>Bend the center 45°</b> on the bender's center mark (a rim notch or teardrop on many benders).</li>
+<li><b>Bend each outer mark 22.5°</b> the opposite way, on the arrow, keeping all three bends in one plane. For the far outer mark, turn the conduit around so that bend forms back toward the center. Bending order differs by manufacturer: Klein's guide bends the center first; Greenlee's bends an outer mark, the center, then the other outer.</li>
+</ol>
+<h3>Worked example: 3-point saddle over a 2" pipe</h3>
+<p>The pipe is 2" high and its center is 30" from the end of the conduit. Center mark: 30" + 2 × 3/16" = 30 3/8". Outer marks: 2 × 2.5 = 5" each side, at 25 3/8" and 35 3/8". The saddle uses 3/4" of conduit (total shrink).</p>
+
+<h2>How to bend a 4-point saddle</h2>
+<ol>
+<li><b>Measure</b> the height, the width (how long the conduit stays up) and the distance from the conduit end to the near side of the obstruction.</li>
+<li><b>Pick an angle</b> and find the distance between bends (height × multiplier) and the shrink of one offset (height × shrink per inch).</li>
+<li><b>Mark 2</b> = distance to the near side + shrink. <b>Mark 1</b> = mark 2 − distance between bends.</li>
+<li><b>Mark 3</b> = mark 2 + width. <b>Mark 4</b> = mark 3 + distance between bends.</li>
+<li><b>Bend marks 1 and 2</b> as an offset up (roll the conduit 180° between them), then <b>marks 3 and 4</b> as an offset back down to the original line. Sight down the conduit to keep every bend in one plane.</li>
+</ol>
+<h3>Worked example: 4-point saddle over a 4" × 10" box</h3>
+<p>Height 4", width 10", near side 40" from the end, 30° bends with field-chart numbers. Distance between bends: 4" × 2 = 8". Shrink per offset: 4" × 1/4" = 1". Marks: 33", 41", 51", 59". Total shrink: 2".</p>
+<p class="note"><b>About the numbers:</b> these calculators use the point model behind apprenticeship charts — each bend is treated as a sharp corner. Real benders have a radius and some springback, which shift the marks slightly. Bend and measure a test piece from scrap before you bend a run. This page uses no electrical-code data.</p>
+
+<h2>Common questions</h2>
+<h3>What is the multiplier for a 3-point saddle?</h3>
+<p>For the common 45° center with 22.5° outer bends, the field rule is 2.5: the outer marks go 2 1/2 inches from the center mark for every inch of saddle height. The exact point-model value is 1 ÷ sin 22.5° = 2.613.</p>
+<h3>How much does a 3-point saddle shrink?</h3>
+<p>Move the center mark 3/16 inch farther from the end for every inch of saddle height (the exact value is tan 11.25° = 0.199 inch). The whole saddle uses twice that, about 3/8 inch of conduit per inch of height.</p>
+<h3>What is a saddle bend in conduit?</h3>
+<p>A saddle carries the conduit over an obstruction, such as a pipe crossing the run, and brings it back to its original line. A 3-point saddle uses three bends; a 4-point saddle is two offsets with a straight section over the obstruction.</p>
+<h3>When should I use a 4-point saddle instead of a 3-point?</h3>
+<p>When the obstruction is wide, such as a box, beam or duct, or when a 3-point saddle would be too tall or too tight to pull wire through easily.</p>
+<h3>What is the saddle mark on a bender?</h3>
+<p>Many hand benders have a mark for the center bend of a 3-point saddle, often a rim notch or a teardrop. Line the center mark on the conduit up with it; the outer bends go on the arrow. Markings differ by manufacturer, so check your bender's guide.</p>
+
+<section class="related" aria-labelledby="rel">
+<h2 id="rel">More free conduit bending calculators</h2>
+<ul class="tools">
+<li><a href="../conduit-offset-calculator/">Conduit offset calculator — distance between bends, shrink and marks</a></li>
+<li><a href="../90-degree-bend-calculator/">90° bend calculator — stub-up mark and bender take-up</a></li>
+<li><a href="../rolling-offset-calculator/">Rolling offset calculator — true offset and roll angle</a></li>
+<li><a href="../conduit-bending-chart/">Conduit bending chart — printable multipliers, shrink and take-up</a></li>
+<li><a href="../conduit-bending-calculator/">All conduit bending calculators</a></li>
+</ul>
+</section>
+
+<section class="app" aria-labelledby="appname">
+<h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
+<p>The free calculators on this site use the point model. Raceway does this math on the job, offline, and corrects the marks for the bender you use (built-in Greenlee and Klein EMT bender profiles, or measure your own with test bends): offsets, 3- and 4-point saddles, rolling offsets, 90° stubs, back-to-back 90s and parallel offsets, in tape-measure fractions with a diagram for every bend and a step-by-step Bend mode. $4.99 one-time on the US App Store, no account, no ads.</p>
+<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-saddle-bend-calculator&amp;mt=8" data-ct="web-saddle-bend-calculator">Raceway: Conduit Bending on the App Store</a></p>
+</section>
+
+<footer>© 2026 Oğuz Çamur · <a href="../">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+</main>
+<script src="../assets/bend.js"></script>
+<script>
+(function(){
+var RB=window.RacewayBend,$=function(id){return document.getElementById(id)};
+var st={type:"3",center:45,a:30,m:"field"};
+RB.seg($("type"),[{v:"3",label:"3-point"},{v:"4",label:"4-point"}],st.type,function(v){st.type=v;calc()});
+RB.seg($("center"),[{v:45,label:"45° center, 22.5° outers"},{v:60,label:"60° center, 30° outers"}],st.center,function(v){st.center=v;calc()});
+RB.seg($("angles"),RB.ANGLES.map(function(a){return {v:a,label:a+"°"}}),st.a,function(v){st.a=v;calc()});
+RB.seg($("modes"),[{v:"field",label:"Field numbers"},{v:"exact",label:"Exact (trig)"}],st.m,function(v){st.m=v;calc()});
+["h","x3","w","x4","prec"].forEach(function(id){$(id).addEventListener("input",calc)});
+function calc(){var out=$("out"),err=$("err"),how=$("how"),t3=st.type==="3";out.innerHTML="";err.textContent="";how.innerHTML="";
+  ["p3x","p3a"].forEach(function(id){$(id).hidden=!t3});["p4w","p4x","p4a"].forEach(function(id){$(id).hidden=t3});
+  var den=+$("prec").value,h=RB.parse($("h").value),fr=function(v){return RB.frac(v,den)},n=RB.num,steps=[];
+  if(h===null||isNaN(h)||h<=0||h>120){err.textContent="Enter an obstruction height between 0 and 120 inches.";return}
+  if(t3){var x=RB.parse($("x3").value);
+    if(x!==null&&(isNaN(x)||x<0||x>2400)){err.textContent="Distance to the obstruction center must be a positive number of inches.";return}
+    var r=RB.saddle3(h,st.center,st.m,x);
+    out.innerHTML=RB.stat(fr(r.centerToOuter),"center mark to each outer mark ("+n(r.centerToOuter)+"\")")+RB.stat(fr(r.shrinkToCenter),"move the center mark (shrink to center)")+RB.stat(fr(r.totalShrink),"total shrink ("+n(r.totalShrink)+"\")");
+    steps.push("Center to outer marks: "+n(h)+"\" × "+(r.field?"2.5 (field rule)":n(r.mult)+" (1 ÷ sin "+r.outer+"°)")+" = "+n(r.centerToOuter)+"\"");
+    steps.push("Shrink to center: "+n(h)+"\" × "+(r.field?"3/16\" per inch (field rule)":n(r.shrinkPerInch)+" per inch (tan "+(r.outer/2)+"°)")+" = "+n(r.shrinkToCenter)+"\"; total shrink is twice that, "+n(r.totalShrink)+"\"");
+    if(st.m==="field"&&!r.field)steps.push("The 2.5 and 3/16\" field rule is for a 45° center, so a 60° center uses the exact values.");
+    if(r.marks){var k=r.marks;
+      steps.push("Center mark: "+n(x)+"\" to the center + "+n(r.shrinkToCenter)+"\" shrink = "+n(k[1])+"\"");
+      steps.push("Outer marks: center mark ± "+n(r.centerToOuter)+"\" = "+n(k[0])+"\" and "+n(k[2])+"\"");
+      if(r.tooClose)err.textContent="The obstruction is too close to the end for this saddle (outer mark 1 would be "+fr(-k[0])+" past the end). Leave more conduit before the saddle.";
+      else out.innerHTML+=RB.stat(fr(k[0]),"outer mark 1 from the end ("+r.outer+"°)")+RB.stat(fr(k[1]),"center mark from the end ("+st.center+"°)")+RB.stat(fr(k[2]),"outer mark 2 from the end ("+r.outer+"°)")}
+    steps.push("Bend "+st.center+"° on the center mark and "+r.outer+"° on each outer mark the opposite way, all in one plane.");
+  }else{var w=RB.parse($("w").value),x4=RB.parse($("x4").value);
+    if(w===null||isNaN(w)||w<=0||w>1200){err.textContent="Enter an obstruction width between 0 and 1200 inches.";return}
+    if(x4!==null&&(isNaN(x4)||x4<0||x4>2400)){err.textContent="Distance to the obstruction must be a positive number of inches.";return}
+    var q=RB.saddle4(h,w,st.a,st.m,x4),m=q.marks,from=q.fromEnd?" from the end":" from mark 1";
+    out.innerHTML=RB.stat(fr(q.spacing),"between bends, each offset ("+n(q.spacing)+"\")")+RB.stat(fr(q.shrink),"shrink per offset")+RB.stat(fr(q.totalShrink),"total shrink");
+    steps.push("Distance between bends: "+n(h)+"\" × "+(q.field?q.mult+" (field multiplier)":n(q.mult)+" (1 ÷ sin "+st.a+"°)")+" = "+n(q.spacing)+"\"");
+    steps.push("Shrink per offset: "+n(h)+"\" × "+(q.field?RB.frac(q.shrinkPerInch,16)+" per inch (field chart)":n(q.shrinkPerInch)+" per inch (tan "+(st.a/2)+"°)")+" = "+n(q.shrink)+"\"");
+    if(q.fromEnd){
+      if(q.field)steps.push("Mark 2: "+n(x4)+"\" to the near side + "+n(q.shrink)+"\" shrink = "+n(m[1])+"\"; mark 1: mark 2 − "+n(q.spacing)+"\" = "+n(m[0])+"\"");
+      else steps.push("Mark 1: "+n(x4)+"\" to the near side − "+n(q.run)+"\" the offset covers = "+n(m[0])+"\"; mark 2: mark 1 + "+n(q.spacing)+"\" = "+n(m[1])+"\"");
+    }else steps.push("No distance to the obstruction entered, so the marks are measured from mark 1.");
+    steps.push("Mark 3: mark 2 + "+n(w)+"\" width = "+n(m[2])+"\"; mark 4: mark 3 + "+n(q.spacing)+"\" = "+n(m[3])+"\"");
+    if(q.tooClose)err.textContent="The obstruction is too close to the end for this saddle (mark 1 would be "+fr(-m[0])+" past the end). Use a steeper angle or more distance.";
+    else out.innerHTML+=[0,1,2,3].map(function(i){return RB.stat(fr(m[i]),"mark "+(i+1)+from+" ("+st.a+"°)")}).join("");
+    steps.push("Bend marks 1 and 2 as an offset up (roll 180° between them), then marks 3 and 4 as an offset back down.");
+  }
+  RB.steps(how,steps)}
+calc();
+})();
+</script>
+</body>
+</html>
