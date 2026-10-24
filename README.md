@@ -22,13 +22,16 @@ Every page runs entirely in the browser: no analytics, no trackers, no cookies, 
 | `index.html`, `support.html` | (brand) | `web-privacy`, `web-support` |
 
 - **Smart App Banner:** every page has `<meta name="apple-itunes-app" content="app-id=6821341136">`, so iOS Safari shows the native App Store banner. Banner taps carry no campaign token.
-- **Campaign links:** App Store links look like `…/id6821341136?ct=web-<page>&amp;mt=8` with a matching `data-ct="web-<page>"`. There is no `pt=` yet. Once the provider token is set in GrowthPilot, its `attribution.tag_html` / `tag_site` rebuild these links with `pt` added and the `ct` from `data-ct` kept. Tokens stay within Apple's 30-character limit.
-- **Sitemap:** `sitemap.xml` lists every page. Submit it in Google Search Console (owner account) after publishing.
+- **Campaign links:** every App Store link uses Apple's documented campaign-link form, `https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&ct=web-<page>&mt=8` (written with `&amp;` in the HTML), with a matching `data-ct="web-<page>"`. `pt` is the App Store Connect provider token; `ct` is one token per page (privacy, support and each calculator), never per link, because App Analytics shows a campaign figure only once it reaches 5 users. The links are generated with GrowthPilot's `attribution.tag_html`, so the site and GrowthPilot agree; re-running it rebuilds the query instead of appending. Tokens are lowercase `[a-z0-9-]` and within Apple's 30-character limit.
+- **Where the App Store link sits:** on every page one link is on the first screen on a phone (calculator pages: under the intro; privacy page: in the top navigation; support page: third paragraph). Each calculator also has one directly under its result, inside the calculator card, plus the "Raceway for iPhone" section at the end. All of them carry the page's single token.
+- **What is measured:** App Store Connect → App Analytics → Campaigns reports downloads, sales and product page views per `ct` (first-time downloads within 24 hours of the tap, last campaign link wins, data after about 24 hours, figures shown only at 5 or more users, small noise added). Taps on these links are not measured anywhere, and installs from the Smart App Banner carry no token.
+- **Sitemap:** `sitemap.xml` lists all 8 pages with `lastmod`. Submit it in Google Search Console (owner account, after verifying the URL-prefix property `https://oguzcamurr.github.io/raceway-privacy/`).
+- **robots.txt:** not possible here. Crawlers only read `/robots.txt` at the host root (`https://oguzcamurr.github.io/robots.txt`), which a GitHub Pages *project* site cannot serve; only a user site repository named `oguzcamurr.github.io` could. That URL currently returns 404, which crawlers treat as "everything allowed". No page uses `noindex`.
 
 ## Checks before publishing
 
 ```sh
-node --test tests/bend-math.test.js   # formulas, page wiring, FAQ/JSON-LD match, links, no external requests
+node --test tests/bend-math.test.js   # formulas, page wiring, FAQ/JSON-LD match, campaign links, links, sitemap, no external requests
 ```
 
 ## Publishing (owner-approved only)
@@ -39,4 +42,4 @@ Changes are prepared on a branch and are not live until the owner merges and pus
 git checkout main && git merge --ff-only <branch> && git push origin main
 ```
 
-GitHub Pages redeploys within a few minutes. GrowthPilot keeps its own copy under `growthpilot/sites/raceway/`. Copy changed pages there only if GrowthPilot should tag them.
+GitHub Pages redeploys within a few minutes. GrowthPilot keeps a copy of the published pages under `sites/raceway/` in its repository; copy changed pages there after publishing so both stay in sync.

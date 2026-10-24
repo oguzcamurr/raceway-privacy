@@ -28,10 +28,10 @@ input,select{width:100%;font:inherit;color:var(--ink);padding:10px 12px;border:1
 ol.steps li{margin:.3em 0}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
 .note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
 a{color:var(--link)}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
-.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--btn);color:var(--btnfg);border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--btn);color:var(--btnfg);border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}.cta{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:.95rem}.cta a{font-weight:600}
 ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!important}
 .printbtn{font:inherit;padding:9px 14px;border:1px solid var(--fline);background:var(--field);color:var(--ink);border-radius:8px;cursor:pointer}
-@media print{nav.top,.store,.app,.printbtn,.related,footer{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{max-width:none;padding:0}h2{break-after:avoid;margin-top:1.2em}table{font-size:9.5pt;break-inside:avoid}th{background:#eee}a{color:#000}}
+@media print{nav.top,.store,.cta,.app,.printbtn,.related,footer{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{max-width:none;padding:0}h2{break-after:avoid;margin-top:1.2em}table{font-size:9.5pt;break-inside:avoid}th{background:#eee}a{color:#000}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"90° Stub-Up and Take-Up Calculator","url":"https://oguzcamurr.github.io/raceway-privacy/90-degree-bend-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculates the mark for a 90° conduit stub-up from the stub height and the bender take-up, and finds a bender's take-up from a test bend."}
@@ -45,7 +45,7 @@ ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!impo
 <nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/">Offset</a> · <a href="../saddle-bend-calculator/">Saddle</a> · <a href="../90-degree-bend-calculator/" aria-current="page">90° stub-up</a> · <a href="../rolling-offset-calculator/">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
 <h1>90° Bend Calculator: Stub-Up Mark and Take-Up</h1>
 <p class="lead">Enter the stub height you need and your bender's take-up. You get where to put the mark, in tape-measure fractions. You can also work out your bender's real take-up from one test bend.</p>
-<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Get Raceway for iPhone on the App Store</a>
+<a class="store" href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Get Raceway for iPhone on the App Store</a>
 
 <section class="card" aria-labelledby="calc">
   <h2 id="calc" style="margin-top:0">Calculate a 90° stub-up</h2>
@@ -59,6 +59,7 @@ ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!impo
   <div class="out" id="out" aria-live="polite"></div>
   <div class="err" id="err" role="alert"></div>
   <ol class="steps" id="how"></ol>
+  <p class="cta">Raceway for iPhone corrects these marks for your own bender and works offline. <a href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Get Raceway on the App Store</a> ($4.99 one-time)</p>
 </section>
 
 <section class="card" aria-labelledby="calc2" style="margin-top:18px">
@@ -123,7 +124,7 @@ ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}[hidden]{display:none!impo
 <section class="app" aria-labelledby="appname">
 <h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
 <p>The free calculators on this site use the point model. Raceway does this math on the job, offline, and corrects the marks for the bender you use (built-in Greenlee and Klein EMT bender profiles, or measure your own with test bends): offsets, 3- and 4-point saddles, rolling offsets, 90° stubs, back-to-back 90s and parallel offsets, in tape-measure fractions with a diagram for every bend and a step-by-step Bend mode. $4.99 one-time on the US App Store, no account, no ads.</p>
-<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Raceway: Conduit Bending on the App Store</a></p>
+<p><a class="store" href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-90-degree-bend-calculator&amp;mt=8" data-ct="web-90-degree-bend-calculator">Raceway: Conduit Bending on the App Store</a></p>
 </section>
 
 <footer>© 2026 Oğuz Çamur · <a href="../">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>

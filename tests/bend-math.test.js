@@ -300,9 +300,15 @@ test("every page: Smart App Banner, tagged App Store links, unique title/descrip
     for (const m of links) {
       const ct = "web-" + slug;
       assert.ok(ct.length <= 30, `${ct} fits Apple's 30-character campaign token limit`);
-      assert.equal(m[1], `https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=${ct}&amp;mt=8`, file);
+      // Apple's documented campaign-link form: provider token (pt) + campaign token (ct), one ct per page.
+      assert.ok(/^[a-z0-9-]+$/.test(ct), `${ct} uses [a-z0-9-] only`);
+      assert.equal(m[1], `https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=${ct}&amp;mt=8`, file);
       assert.ok(m[0].includes(`data-ct="${ct}"`), `${file} data-ct`);
     }
+    // an App Store link before the main content, so it is on the first screen on a phone
+    const firstStore = html.indexOf("https://apps.apple.com/"), h2 = html.indexOf("<h2", html.indexOf("<body"));
+    assert.ok(firstStore > html.indexOf("<body") && (h2 < 0 || firstStore < h2), `${file} App Store link above the fold`);
+    assert.ok(!/<meta name="robots"[^>]*noindex/i.test(html), `${file} not noindex`);
     const title = html.match(/<title>(.*?)<\/title>/)[1], desc = html.match(/<meta name="description" content="([^"]*)"/)[1];
     assert.ok(!titles.has(title) && !descs.has(desc), `${file} unique title/description`); titles.add(title); descs.add(desc);
     const canon = html.match(/<link rel="canonical" href="([^"]*)"/)[1];
@@ -312,8 +318,18 @@ test("every page: Smart App Banner, tagged App Store links, unique title/descrip
   }
 });
 
+test("calculator pages: an App Store link right under the result, inside the calculator card", () => {
+  for (const slug of ["conduit-offset-calculator", "saddle-bend-calculator", "90-degree-bend-calculator", "rolling-offset-calculator"]) {
+    const html = read(`${slug}/index.html`);
+    const card = html.slice(html.indexOf('<ol class="steps" id="how"></ol>'));
+    const cta = card.slice(0, card.indexOf("</section>"));
+    assert.match(cta, new RegExp(`<p class="cta">[\\s\\S]*href="https://apps\\.apple\\.com/app/apple-store/id6821341136\\?pt=128209741&amp;ct=web-${slug}&amp;mt=8" data-ct="web-${slug}"`), slug);
+  }
+});
+
 test("internal links resolve to files in this repository, and every page is in the sitemap", () => {
   const sitemap = read("sitemap.xml");
+  assert.equal([...sitemap.matchAll(/<url><loc>[^<]+<\/loc><lastmod>\d{4}-\d{2}-\d{2}<\/lastmod><\/url>/g)].length, Object.keys(PAGES).length, "every sitemap entry has a lastmod");
   for (const file of Object.keys(PAGES)) {
     const html = read(file), dir = path.dirname(file);
     for (const m of html.matchAll(/\b(?:href|src)="([^"#]+)"/g)) {

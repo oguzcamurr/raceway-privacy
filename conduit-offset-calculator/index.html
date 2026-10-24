@@ -23,11 +23,11 @@ input,select{width:100%;font:inherit;padding:10px 12px;border:1px solid #b9c0ca;
 .seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .out{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px}
 .stat b{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.85rem}.err{color:#a40000;font-weight:600;margin-top:12px}
-ol.steps li{margin:.3em 0}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
+ol.steps li{margin:.3em 0}.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:var(--card)}
 .note{background:var(--accbg);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px}.app{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:2em}
 a{color:#9a4d06}footer{color:var(--muted);font-size:.85rem;margin-top:3em;border-top:1px solid var(--line);padding-top:12px}
 svg{max-width:100%;height:auto}
-.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--ink);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}
+.store{display:inline-block;margin:4px 0 18px;padding:10px 16px;background:var(--ink);color:#fff;border-radius:10px;text-decoration:none;font-weight:600}.store:hover{opacity:.9}.cta{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:.95rem}.cta a{font-weight:600}
 nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-current=page]{color:var(--ink);font-weight:600;text-decoration:none}ul.tools{padding-left:1.1em}ul.tools li{margin:.5em 0}
 </style>
 <script type="application/ld+json">
@@ -49,7 +49,7 @@ nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-cur
 <nav class="top" aria-label="Free conduit bending calculators"><a href="../conduit-bending-calculator/">All calculators</a> · <a href="../conduit-offset-calculator/" aria-current="page">Offset</a> · <a href="../saddle-bend-calculator/">Saddle</a> · <a href="../90-degree-bend-calculator/">90° stub-up</a> · <a href="../rolling-offset-calculator/">Rolling offset</a> · <a href="../conduit-bending-chart/">Bending chart</a></nav>
 <h1>Conduit Offset Calculator</h1>
 <p class="lead">Enter the offset depth and pick an angle. You get the distance between bends, the shrink and, if you enter the distance to the obstruction, where to put both marks — in tape-measure fractions.</p>
-<a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Get Raceway for iPhone on the App Store</a>
+<a class="store" href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Get Raceway for iPhone on the App Store</a>
 
 <section class="card" aria-labelledby="calc">
   <h2 id="calc" style="margin-top:0">Calculate an offset</h2>
@@ -67,14 +67,15 @@ nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-cur
   <div class="out" id="out" aria-live="polite"></div>
   <div class="err" id="err" role="alert"></div>
   <ol class="steps" id="how"></ol>
+  <p class="cta">Raceway for iPhone corrects these marks for your own bender and works offline. <a href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Get Raceway on the App Store</a> ($4.99 one-time)</p>
 </section>
 
 <h2>Offset multiplier and shrink chart</h2>
 <p>Distance between bends = offset depth × multiplier. Shrink is how much shorter the conduit gets along its run because of the offset.</p>
-<table>
+<div class="tw"><table>
 <thead><tr><th>Angle</th><th>Multiplier (exact)</th><th>Field chart</th><th>Shrink per inch (exact)</th><th>Field chart shrink</th></tr></thead>
 <tbody id="chart"></tbody>
-</table>
+</table></div>
 <p>Need it on paper? The <a href="../conduit-bending-chart/">printable conduit bending chart</a> adds distance-between-bends and shrink tables for 1" to 24" offsets, saddle numbers and 90° take-up.</p>
 
 <h2>How to bend an offset</h2>
@@ -116,10 +117,10 @@ nav.top{font-size:.9rem;color:var(--muted);margin-bottom:10px}nav.top a[aria-cur
 <section class="app" aria-labelledby="appname">
 <h2 id="appname" style="margin-top:0">Raceway for iPhone</h2>
 <p>Raceway does this math on the job, offline: offsets, saddles, rolling offsets, 90° stubs and back-to-back bends, with tape-measure fractions, marks for the bender you use and a diagram for every bend. It also has voltage drop and box and conduit fill. $4.99 one-time, no account.</p>
-<p><a class="store" href="https://apps.apple.com/us/app/raceway-conduit-bending/id6821341136?ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Raceway: Conduit Bending on the App Store</a></p>
+<p><a class="store" href="https://apps.apple.com/app/apple-store/id6821341136?pt=128209741&amp;ct=web-conduit-offset-calculator&amp;mt=8" data-ct="web-conduit-offset-calculator">Raceway: Conduit Bending on the App Store</a></p>
 </section>
 
-<footer>© 2026 Oğuz Çamur · <a href="https://oguzcamurr.github.io/raceway-privacy/">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
+<footer>© 2026 Oğuz Çamur · <a href="../">Privacy</a> · <a href="../support.html">Support</a> · This page runs entirely in your browser and sends nothing anywhere.</footer>
 </main>
 <script>
 (function(){
